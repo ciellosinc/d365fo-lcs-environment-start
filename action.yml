@@ -20,21 +20,13 @@ inputs:
     description: 'The password of the account that you want to impersonate'
     required: true
     default: ''
-  FilePath: 
-    description: 'Path to the file that you want to upload to the Asset Library on LCS'
+  EnvironmentId: 
+    description: 'The unique id of the environment that you want to take action upon'
     required: true
     default: ''
-  FileName: 
-    description: 'Name of the file that you want to upload to the Asset Library on LCS'
-    required: true
-    default: ''
-outputs:
-  LCSAssetId:
-    description: "Asset Id"
-    value: ${{ steps.lcsAssetId.outputs.AssetId }}
 runs:
   using: "composite"
   steps:
-  - id: lcsAssetId
+  - id: lcsEnvStart
     shell: powershell
-    run: $Asset = ${{ github.action_path }}/LcsAssetUpload.ps1 -ProjectId ${{ inputs.ProjectId }} -ClientId ${{ inputs.ClientId }}  -Username "${{ inputs.Username }}" -Password "${{ inputs.Password }}" -FilePath "${{ inputs.FilePath }}" -FileName "${{ inputs.FileName }}";echo "::set-output name=AssetId::$(echo $Asset.AssetId)"
+    run: $Asset = ${{ github.action_path }}/LcsEnvironmentStart.ps1 -ProjectId ${{ inputs.ProjectId }} -ClientId ${{ inputs.ClientId }}  -Username "${{ inputs.Username }}" -Password "${{ inputs.Password }}" -EnvironmentId "${{ inputs.EnvironmentId }}"
