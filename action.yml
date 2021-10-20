@@ -1,4 +1,4 @@
-name: 'D365FO Asset Upload'
+name: 'D365FO LCS Environment Start'
 description: 'Action to upload a software deployable package to an LCS project Asset Library.'
 branding:
   icon: 'award'  
