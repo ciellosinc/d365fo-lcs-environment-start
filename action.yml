@@ -1,5 +1,5 @@
 name: 'D365FO LCS Environment Start'
-description: 'Action to upload a software deployable package to an LCS project Asset Library.'
+description: 'Action to start a specified IAAS environment that is Customer Managed through the LCS API..'
 branding:
   icon: 'award'  
   color: 'blue'
