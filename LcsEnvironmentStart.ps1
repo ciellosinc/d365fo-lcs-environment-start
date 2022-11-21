@@ -48,7 +48,7 @@ if([string]::IsNullOrEmpty($NuGet))
     Install-PackageProvider nuget -Scope CurrentUser -Force -Confirm:$false
 }
 
-installModules AZ,d365fo.tools
+installModules AZ,Azure.Storage,d365fo.tools
 
 
 Get-D365LcsApiToken -ClientId $ClientId -Username $Username -Password $Password -LcsApiUri "https://lcsapi.lcs.dynamics.com" -Verbose | Set-D365LcsApiConfig -ProjectId $ProjectId
